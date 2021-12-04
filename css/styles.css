@@ -60,6 +60,11 @@ body * {
   background-color: #E1E4E8;
 }
 
+.calc .buttons button.pressed{
+  background-color: #afafbb;
+   
+}
+
 .calc .buttons .empty {
 
 }
