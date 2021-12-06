@@ -124,11 +124,9 @@ const attachListeners = () => {
   const backButton = document.querySelector(".calc-back");
   backButton.addEventListener('click', () => {
     let temp = displayEle.textContent.split('');
-    //console.log(temp);
     temp.pop();
     displayEle.textContent = temp.join('');
     displayValue = temp.join('');
-    //console.log(temp);
   })
 };
 
