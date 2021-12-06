@@ -13,7 +13,8 @@ const subtract = (num1, num2) => {
 };
 
 const divide = (num1, num2) => {
-  return num1 / num2;
+  
+  return num2 === 0 ? 'Cannot divide by zero' : num1 / num2;
 };
 
 const multiply = (num1, num2) => {
@@ -54,6 +55,7 @@ const attachListeners = () => {
       button.classList.add("pressed");
     });
   });
+
   //Op Buttons
   const opButtons = document.querySelectorAll(".calc-op");
   opButtons.forEach((button) => {
@@ -88,6 +90,7 @@ const attachListeners = () => {
       button.classList.add("pressed");
     });
   });
+
   //Equals
   const equalButton = document.querySelector(".calc-equals");
   equalButton.addEventListener("click", () => {
@@ -103,6 +106,7 @@ const attachListeners = () => {
     // Clear inputs and op variable;
     operator = null;
   });
+
   //Clear
   const clearButton = document.querySelector(".calc-clear");
   clearButton.addEventListener("click", () => {
@@ -115,6 +119,17 @@ const attachListeners = () => {
     input2 = null;
     operator = null;
   });
+
+  //Backspace 
+  const backButton = document.querySelector(".calc-back");
+  backButton.addEventListener('click', () => {
+    let temp = displayEle.textContent.split('');
+    //console.log(temp);
+    temp.pop();
+    displayEle.textContent = temp.join('');
+    displayValue = temp.join('');
+    //console.log(temp);
+  })
 };
 
 const main = () => {
