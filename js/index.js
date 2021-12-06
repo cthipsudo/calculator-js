@@ -61,16 +61,21 @@ const attachListeners = () => {
       //console.log(`${input1} | ${operator} | ${input2} `);
       button.classList.remove("pressed");
       let num = displayEle.textContent;
-      input1 = num;
 
+      if(!input1){ // If input1 is empty
+        input1 = num;
+      }
+      //operator = button.textContent;
+      
       // Figure out chain operators
       //If op is exists
       //do the op and return values
       if (operator) {
+        //console.log(`${input1} | ${operator} | ${num}`);
         const quickOp = operate(operator, +input1, +num);
         displayEle.textContent = quickOp;
         input1 = quickOp;
-        operator = null;
+        operator = button.textContent;
       } else {
         operator = button.textContent;
       }
@@ -88,7 +93,7 @@ const attachListeners = () => {
   equalButton.addEventListener("click", () => {
     //Grab input 2;
     input2 = displayEle.textContent;
-    console.log(`${input1} | ${operator} | ${input2} `);
+    //console.log(`${input1} | ${operator} | ${input2} `);
     if (input1 && input2 && operator) {
       // Call operator func and input parameters
       console.log(operate(operator, +input1, +input2));
